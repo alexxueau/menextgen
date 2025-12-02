@@ -25,7 +25,14 @@ export const SpreadTheWord = () => {
   const [activeButton, setActiveButton] = useState("download");
 
   const buttons = [
-    { id: "download", left: "0px", img: "/img/DownloadP.svg", url:"blank" },
+    { id: "download", left: "0px", img: "/img/DownloadP.svg", url: "/img/StoryPic.png", onClick: () => {
+      const link = document.createElement('a');
+      link.href = "/img/StoryPic.png";
+      link.download = "meyd-it-story.png";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }},    
     { id: "instagram", left: "90px", img: "/img/InsP.svg", url:"https://www.instagram.com/meyd_it" },
     { id: "tiktok", left: "180px", img: "/img/TTP.svg", url:"https://www.tiktok.com/@meyd.it" },
   ];
