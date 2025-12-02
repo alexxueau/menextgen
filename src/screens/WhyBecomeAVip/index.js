@@ -1,0 +1,1 @@
+export { WhyBecomeAVip } from "./WhyBecomeAVip";
