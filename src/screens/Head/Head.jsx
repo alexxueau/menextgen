@@ -40,7 +40,7 @@ export const Head = () => {
         }}
       />
 
-      {/* 固定导航栏 */}
+      {/*fixed navbar*/}
       <Box
         sx={{
           position: "fixed",
