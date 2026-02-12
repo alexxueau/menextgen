@@ -1,6 +1,6 @@
 import { Box, Stack, Typography } from "@mui/material";
 import React from "react";
-import theme from "../../op1000theme"
+import theme from "../../op1000theme";
 
 export const WhatIsMeydIt = () => {
   return (
@@ -10,6 +10,7 @@ export const WhatIsMeydIt = () => {
         margin: "0 auto",
         bgcolor: "#f4efe5",
         display: "flex",
+        alignItems: "center",
         justifyContent: "center",
         height: "100vh",
       }}
@@ -21,19 +22,14 @@ export const WhatIsMeydIt = () => {
           alignItems: "center",
           justifyContent: "space-between",
           minHeight: "1024px",
-          px: "120px",
-          paddingLeft: "0px",
+          px: { xs: 2, sm: 4, md: 8, lg: 15 },
+          paddingLeft: { xs: 2, sm: 4, md: 0 },
         }}
       >
-        <Stack spacing="50px" sx={{ maxWidth: "640px" }}>
-          <Typography
-            variant="h2"
-            
-          >
-            What is MEYD.it?
-          </Typography>
+        <Stack spacing={8} sx={{ maxWidth: "640px" }}>
+          <Typography variant="h2">What is MEYD.it?</Typography>
 
-          <Stack spacing="60px">
+          <Stack spacing={8}>
             <Typography
               variant="h4"
               sx={{
@@ -58,20 +54,20 @@ export const WhatIsMeydIt = () => {
             >
               No middlemen. No fast fashion.
               <br />
-              Just authentic connection, meaningful design, and fashion that tells
-              a story.
+              Just authentic connection, meaningful design, and fashion that
+              tells a story.
             </Typography>
           </Stack>
         </Stack>
       </Box>
-    <Box
+      <Box
         component="img"
         alt="Frame"
         src="/img/frame-1000001550.png"
         sx={{
           width: "650px",
-          height: 'auto',
-          paddingRight: "120px",
+          height: "100vh",
+          pr: 7.5,
           overflow: "hidden",
           objectFit: "cover",
         }}

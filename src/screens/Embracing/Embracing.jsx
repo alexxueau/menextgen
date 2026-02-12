@@ -36,8 +36,7 @@ export const Embracing = () => {
           position: "relative",
           color: "white",
           textAlign: "center",
-          maxWidth: "1320px",
-          zIndex: 1,
+          maxWidth: "100vw",
         }}
       >
         By embracing circular design, reducing waste &amp; carbon impact, and

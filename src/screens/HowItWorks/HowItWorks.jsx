@@ -51,44 +51,45 @@ const stepsDataBottom = [
 
 export const HowItWorks = () => {
   const containerRef = useRef(null);
-  const contentRef = useRef(null);const [scrollProgress, setScrollProgress] = useState(0);
+  const contentRef = useRef(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [maxScroll, setMaxScroll] = useState(1200);
 
   useEffect(() => {
-  const handleScroll = () => {
-    if (!containerRef.current) return;
-    const container = containerRef.current;
-    const rect = container.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-    const start = rect.top;
-    const end = rect.bottom - windowHeight;
-    if (start > 0) {
-      setScrollProgress(0);
-    } else if (end < 0) {
-      setScrollProgress(1);
-    } else {
-      const scrolled = -start;
-      const total = rect.height - windowHeight;
-      const progress = Math.min(Math.max(scrolled / total, 0), 1);
-      setScrollProgress(progress);
-    }
-  };
-  const calculateMaxScroll = () => {
-    if (contentRef.current) {
-      const contentWidth = contentRef.current.scrollWidth;
-      const viewportWidth = window.innerWidth;
-      setMaxScroll(Math.max(0, contentWidth - viewportWidth));
-    }
-  };
-  calculateMaxScroll();
-  window.addEventListener("scroll", handleScroll);
-  window.addEventListener("resize", calculateMaxScroll);
-  handleScroll();
-  return () => {
-    window.removeEventListener("scroll", handleScroll);
-    window.removeEventListener("resize", calculateMaxScroll);
-  };
-}, []);
+    const handleScroll = () => {
+      if (!containerRef.current) return;
+      const container = containerRef.current;
+      const rect = container.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const start = rect.top;
+      const end = rect.bottom - windowHeight;
+      if (start > 0) {
+        setScrollProgress(0);
+      } else if (end < 0) {
+        setScrollProgress(1);
+      } else {
+        const scrolled = -start;
+        const total = rect.height - windowHeight;
+        const progress = Math.min(Math.max(scrolled / total, 0), 1);
+        setScrollProgress(progress);
+      }
+    };
+    const calculateMaxScroll = () => {
+      if (contentRef.current) {
+        const contentWidth = contentRef.current.scrollWidth;
+        const viewportWidth = window.innerWidth;
+        setMaxScroll(Math.max(0, contentWidth - viewportWidth));
+      }
+    };
+    calculateMaxScroll();
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", calculateMaxScroll);
+    handleScroll();
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", calculateMaxScroll);
+    };
+  }, []);
 
   const translateX = -scrollProgress * maxScroll;
 
@@ -98,9 +99,8 @@ export const HowItWorks = () => {
       data-model-id="1:627"
       sx={{
         bgcolor: "#1A1A1A",
-        minHeight: "300vh", // Make it tall enough to allow scrolling
+        minHeight: "300vh",
         position: "relative",
-        py: 8,
       }}
     >
       {/* Sticky container that holds the horizontally scrolling content */}
@@ -110,27 +110,31 @@ export const HowItWorks = () => {
           top: 0,
           height: "100vh",
           overflow: "hidden",
+          display: "flex",
+          alignItems: "center",
         }}
       >
-        <Stack spacing={8} sx={{ height: "100%", justifyContent: "center" }}>
+        <Stack spacing={4} sx={{ width: "100%" }}>
           {/* Header Section */}
           <Box
             sx={{
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              flexWrap: "nowrap",
+              flexDirection: { xs: "column", md: "row" },
+              gap: { xs: 2, md: 0 },
               px: { xs: 2, md: 8 },
+              flexShrink: 0,
             }}
           >
-            <Box sx={{ maxWidth: "691px" }}>
+            <Box sx={{ maxWidth: "100vw" }}>
               <Typography
                 variant="h1"
                 sx={{
                   color: "#F5F5F5",
-                  fontSize: { xs: "2.5rem", md: "3.5rem" },
+                  fontSize: { xs: "1.75rem", md: "3rem" },
                   fontWeight: 700,
-                  mb: 2,
+                  mb: 1,
                 }}
               >
                 How Meyd.it <span style={{ fontStyle: "italic" }}>works</span>
@@ -139,10 +143,11 @@ export const HowItWorks = () => {
                 variant="subtitle1"
                 sx={{
                   color: "#E0E0E0",
-                  fontSize: { xs: "1rem", md: "1.25rem" },
+                  fontSize: { xs: "0.875rem", md: "1.125rem" },
                 }}
               >
-                From a sketch, to a stitch, to something that lives in your hands.
+                From a sketch, to a stitch, to something that lives in your
+                hands.
               </Typography>
             </Box>
             <Box
@@ -150,8 +155,8 @@ export const HowItWorks = () => {
               src="/img/HowMeyd.itWork.Frame.png"
               alt="Frame"
               sx={{
-                width: { xs: "280px", md: "361px" },
-                height: { xs: "200px", md: "260px" },
+                width: { xs: "180px", md: "320px" },
+                height: { xs: "120px", md: "230px" },
                 objectFit: "cover",
                 borderRadius: "4px",
                 boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
@@ -160,7 +165,15 @@ export const HowItWorks = () => {
           </Box>
 
           {/* Horizontally scrolling content */}
-          <Box sx={{ overflow: "hidden" }}>
+          <Box
+            sx={{
+              overflow: "hidden",
+              display: "flex",
+              alignItems: "center",
+              flex: 1,
+              minHeight: 0,
+            }}
+          >
             <Box
               ref={contentRef}
               sx={{
@@ -178,7 +191,7 @@ export const HowItWorks = () => {
                   display: "flex",
                   gap: 4,
                   alignItems: "flex-start",
-                  px: { xs: 2, md: 8 }
+                  px: { xs: 2, md: 8 },
                 }}
               >
                 {stepsDataTop.map((step, index) => (
@@ -241,7 +254,7 @@ export const HowItWorks = () => {
                           color: "#E0E0E0",
                           fontSize: { xs: "0.875rem", md: "1rem" },
                           lineHeight: 1.6,
-                          maxWidth:"365px",
+                          maxWidth: "365px",
                         }}
                       >
                         {step.description}
@@ -276,7 +289,7 @@ export const HowItWorks = () => {
                   display: "flex",
                   gap: 4,
                   alignItems: "flex-start",
-                  px: { xs: 2, md: 8 }
+                  px: { xs: 2, md: 8 },
                 }}
               >
                 {stepsDataBottom.map((step, index) => (
@@ -339,7 +352,7 @@ export const HowItWorks = () => {
                           color: "#E0E0E0",
                           fontSize: { xs: "0.875rem", md: "1rem" },
                           lineHeight: 1.6,
-                          maxWidth: "395px"
+                          maxWidth: "395px",
                         }}
                       >
                         {step.description}
@@ -348,51 +361,6 @@ export const HowItWorks = () => {
                   </Box>
                 ))}
               </Box>
-            </Box>
-          </Box>
-
-          {/* Navigation Arrows */}
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              px: { xs: 2, md: 8 },
-            }}
-          >
-            <Box sx={{ display: "flex", gap: 2 }}>
-              <IconButton
-                sx={{
-                  bgcolor: "#2A2A2A",
-                  color: "#fff",
-                  width: 63,
-                  height: 63,
-                  "&:hover": {
-                    bgcolor: "#3A3A3A",
-                  },
-                }}
-                onClick={() => {
-                  window.scrollBy({ top: -window.innerHeight * 0.3, behavior: "smooth" });
-                }}
-              >
-                <ArrowBackIosNewIcon />
-              </IconButton>
-              <IconButton
-                sx={{
-                  bgcolor: "#2A2A2A",
-                  color: "#fff",
-                  width: 63,
-                  height: 63,
-                  "&:hover": {
-                    bgcolor: "#3A3A3A",
-                  },
-                }}
-                onClick={() => {
-                  window.scrollBy({ top: window.innerHeight * 0.3, behavior: "smooth" });
-                }}
-              >
-                <ArrowForwardIosIcon />
-              </IconButton>
             </Box>
           </Box>
         </Stack>

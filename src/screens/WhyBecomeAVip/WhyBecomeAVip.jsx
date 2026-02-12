@@ -1,9 +1,8 @@
 import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 import React from "react";
-import BenefitCard from "./BenefitCard"
-import theme from "../../op1000theme"
-import Masonry from '@mui/lab/Masonry';
-
+import BenefitCard from "./BenefitCard";
+import theme from "../../op1000theme";
+import Masonry from "@mui/lab/Masonry";
 
 const benefitCards = [
   {
@@ -42,13 +41,12 @@ export const WhyBecomeAVip = () => {
     <Box
       data-model-id="1:520"
       sx={{
-        minHeight: "1024px",
-        height: "100vh",
+        minHeight: "100vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         padding: { xs: "50px 20px", md: "100px 60px" },
-        backgroundImage:  `
+        backgroundImage: `
           linear-gradient(rgba(255, 248, 229, 0.8), rgba(255, 248, 229, 0.8)),
           url(/img/why-become-a-vip.png)
         `,
@@ -69,25 +67,25 @@ export const WhyBecomeAVip = () => {
           alignItems: "center",
           justifyContent: "space-between",
           gap: "50px",
-          		'&::before': {
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          borderRadius: theme.spacing(2),
-          background: `
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            borderRadius: theme.spacing(2),
+            background: `
             repeating-linear-gradient(0deg, ${theme.palette.neutral[900]}33 0px, ${theme.palette.neutral[900]}33 20px, transparent 20px, transparent 40px),
             repeating-linear-gradient(90deg, ${theme.palette.neutral[900]}33 0px, ${theme.palette.neutral[900]}33 20px, transparent 20px, transparent 40px),
             repeating-linear-gradient(180deg, ${theme.palette.neutral[900]}33 0px, ${theme.palette.neutral[900]}33 20px, transparent 20px, transparent 40px),
             repeating-linear-gradient(270deg, ${theme.palette.neutral[900]}33 0px, ${theme.palette.neutral[900]}33 20px, transparent 20px, transparent 40px)
           `,
-          backgroundSize: '2px 100%, 100% 2px, 2px 100%, 100% 2px',
-          backgroundPosition: '0 0, 0 0, 100% 0, 0 100%',
-          backgroundRepeat: 'no-repeat',
-          pointerEvents: 'none',
-        },
+            backgroundSize: "2px 100%, 100% 2px, 2px 100%, 100% 2px",
+            backgroundPosition: "0 0, 0 0, 100% 0, 0 100%",
+            backgroundRepeat: "no-repeat",
+            pointerEvents: "none",
+          },
         }}
       >
         <Stack
@@ -154,7 +152,7 @@ export const WhyBecomeAVip = () => {
           <Box
             sx={{
               width: { xs: "100%", sm: "450px" },
-              maxWidth: '100%',
+              maxWidth: "100%",
               height: "300px",
               borderRadius: "30px",
               overflow: "hidden",
@@ -218,11 +216,11 @@ export const WhyBecomeAVip = () => {
             </Stack>
 
             <Typography
-            variant="h2"
+              variant="h2"
               sx={{
                 textAlign: "center",
                 top: "110px",
-                color: "#ffffff"
+                color: "#ffffff",
               }}
             >
               meNexGen
@@ -235,7 +233,7 @@ export const WhyBecomeAVip = () => {
                 position: "absolute",
                 bottom: "30px",
                 width: "215px",
-                color: "#FFFFFF80"
+                color: "#FFFFFF80",
               }}
             >
               Only a few VIP spots available...
@@ -257,8 +255,10 @@ export const WhyBecomeAVip = () => {
                 backgroundColor: "#7c3aed",
               },
             }}
-            onClick={() => window.location.href = 'https://share-ap1.hsforms.com/1r0Kng4rHRTGEx9jNO-3B4Qt3h2v'}
-
+            onClick={() =>
+              (window.location.href =
+                "https://share-ap1.hsforms.com/1r0Kng4rHRTGEx9jNO-3B4Qt3h2v")
+            }
           >
             <Typography
               sx={{
@@ -282,14 +282,23 @@ export const WhyBecomeAVip = () => {
 
         <Box
           sx={{
-            maxWidth: '600px',
+            maxWidth: "600px",
             position: "relative",
           }}
         >
-            <Masonry columns={{ xs: 1, md: 2}} spacing={1} sx={{width: '100%', alignItems: 'flex-start'}}>
+          <Masonry
+            columns={{ xs: 1, md: 2 }}
+            spacing={1}
+            sx={{ width: "100%", alignItems: "flex-start" }}
+          >
             {benefitCards.map((card, index) => (
               <Grid item xs={12} sm={6} key={index}>
-                <BenefitCard index={index} title={card.title} content={card.content} icon={card.icon}/>
+                <BenefitCard
+                  index={index}
+                  title={card.title}
+                  content={card.content}
+                  icon={card.icon}
+                />
               </Grid>
             ))}
           </Masonry>
