@@ -4,7 +4,12 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ContentCutIcon from "@mui/icons-material/ContentCut";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import CnDicon from "../../../static/img/04icon.png";
+import FirstStepIcon from "/img/01icon.png";
+import SecondStepIcon from "/img/02icon.png";
+import ThirdStepIcon from "/img/03icon.png";
+import FourthStepIcon from "/img/04icon.png";
+import FifthStepIcon from "/img/05icon.png";
+
 import { Box, IconButton, Stack, Typography } from "@mui/material";
 import theme from "../../op1000theme";
 import React, { useEffect, useRef, useState } from "react";
@@ -15,21 +20,21 @@ const stepsDataTop = [
     title: "Profile Creation & Sign Up",
     description:
       "Sign up to explore and connect with our designers. upload your measurements share your design ideas and get started on your bespoke journey.",
-    icon: <PersonAddIcon sx={{ fontSize: 80, color: "#1A1A1A" }} />,
+    icon: <Box component="img" src={FirstStepIcon} alt="Profile Creation & Sign Up" sx={{ fontSize: 80, color: "#1A1A1A" }} />,
   },
   {
     number: "03",
     title: "Creative Matchmaking",
     description:
       "This is where the magic happens - we'll connect you with a designer who's the perfect fit for your vision.",
-    icon: <FavoriteIcon sx={{ fontSize: 80, color: "#1A1A1A" }} />,
+    icon: <Box component="img" src={ThirdStepIcon} alt="Creative Matchmaking" sx={{ fontSize: 80, color: "#1A1A1A" }} />,
   },
   {
     number: "05",
     title: "Finalisation",
     description:
       "Your atelier will estimate the time and cost to bring your design to life, then share a quote for you to review and approve.",
-    icon: <CheckCircleIcon sx={{ fontSize: 80, color: "#1A1A1A" }} />,
+    icon: <Box component="img" src={FifthStepIcon} alt="Finalisation" sx={{ fontSize: 80, color: "#1A1A1A" }} />,
   },
 ];
 
@@ -39,14 +44,14 @@ const stepsDataBottom = [
     title: "Details Requirements",
     description:
       "Share your vision — we'll match you with the perfect designer to bring it to life. Tell us what you're dreaming of , from style and fabric to fit and budget — and we'll connect you with an independent designer who can make it real.",
-    icon: <ContentCutIcon sx={{ fontSize: 80, color: "#1A1A1A" }} />,
+    icon: <Box component="img" src={SecondStepIcon} alt="Details Requirements" sx={{ width: 80, height: 80 }} />,
   },
   {
     number: "04",
     title: "Consultation and Design",
     description:
       "Schedule a time to work with your designer to sketch, adjust and finalise the details of your garment.",
-    icon: <ContentCutIcon sx={{ fontSize: 80, color: "#1A1A1A" }} />,
+    icon: <Box component="img" src={FourthStepIcon} alt="Consultation and Design" sx={{ width: 80, height: 80 }} />,
   },
 ];
 
@@ -92,7 +97,7 @@ export const HowItWorks = () => {
     };
   }, []);
 
-  const translateX = -scrollProgress * maxScroll;
+  const translateX = -scrollProgress * maxScroll ;
 
   return (
     <Box
