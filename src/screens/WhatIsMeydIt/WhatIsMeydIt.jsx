@@ -22,8 +22,8 @@ export const WhatIsMeydIt = () => {
           alignItems: "center",
           justifyContent: "space-between",
           minHeight: "1024px",
-          px: { xs: 2, sm: 4, md: 8, lg: 15 },
-          paddingLeft: { xs: 2, sm: 4, md: 0 },
+          px: { xs: 2, sm: 4, md: 8, lg: 12 },
+          paddingLeft: { xs: 2, sm: 4, md: 8, lg: 12 },
         }}
       >
         <Stack spacing={8} sx={{ maxWidth: "640px" }}>

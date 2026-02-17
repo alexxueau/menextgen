@@ -4,6 +4,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ContentCutIcon from "@mui/icons-material/ContentCut";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import CnDicon from "../../../static/img/04icon.png";
 import { Box, IconButton, Stack, Typography } from "@mui/material";
 import theme from "../../op1000theme";
 import React, { useEffect, useRef, useState } from "react";
@@ -99,71 +100,68 @@ export const HowItWorks = () => {
       data-model-id="1:627"
       sx={{
         bgcolor: "#1A1A1A",
-        minHeight: "300vh",
+        minHeight: "100vh",
         position: "relative",
       }}
     >
+      {/* Header Section */}
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          flexDirection: { xs: "column", md: "row" },
+          px: { xs: 2, md: 8 },
+          py: { xs: 6, md: 10 },
+          flexShrink: 0,
+        }}
+      >
+        <Box sx={{ maxWidth: "100vw" }}>
+          <Typography
+            variant="h1"
+            sx={{
+              color: "#F5F5F5",
+              fontSize: "3rem",
+              fontWeight: 500,
+              mb: 2,
+            }}
+          >
+            How Meyd.it <span style={{ fontStyle: "italic" }}>works</span>
+          </Typography>
+          <Typography
+            variant="subtitle1"
+            sx={{
+              color: "#E0E0E0",
+              fontSize: "1rem",
+            }}
+          >
+            From a sketch, to a stitch, to something that lives in your hands.
+          </Typography>
+        </Box>
+        <Box
+          component="img"
+          src="/img/HowMeyd.itWork.Frame.png"
+          alt="Frame"
+          sx={{
+            width: { xs: "0", md: "320px" },
+            height: { xs: "0", md: "230px" },
+            objectFit: "cover",
+            borderRadius: "4px",
+            boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
+          }}
+        />
+      </Box>
       {/* Sticky container that holds the horizontally scrolling content */}
       <Box
         sx={{
           position: "sticky",
-          top: 0,
           height: "100vh",
           overflow: "hidden",
           display: "flex",
-          alignItems: "center",
+          alignItems: "flex-start",
         }}
       >
-        <Stack spacing={4} sx={{ width: "100%" }}>
-          {/* Header Section */}
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              flexDirection: { xs: "column", md: "row" },
-              gap: { xs: 2, md: 0 },
-              px: { xs: 2, md: 8 },
-              flexShrink: 0,
-            }}
-          >
-            <Box sx={{ maxWidth: "100vw" }}>
-              <Typography
-                variant="h1"
-                sx={{
-                  color: "#F5F5F5",
-                  fontSize: { xs: "1.75rem", md: "3rem" },
-                  fontWeight: 700,
-                  mb: 1,
-                }}
-              >
-                How Meyd.it <span style={{ fontStyle: "italic" }}>works</span>
-              </Typography>
-              <Typography
-                variant="subtitle1"
-                sx={{
-                  color: "#E0E0E0",
-                  fontSize: { xs: "0.875rem", md: "1.125rem" },
-                }}
-              >
-                From a sketch, to a stitch, to something that lives in your
-                hands.
-              </Typography>
-            </Box>
-            <Box
-              component="img"
-              src="/img/HowMeyd.itWork.Frame.png"
-              alt="Frame"
-              sx={{
-                width: { xs: "180px", md: "320px" },
-                height: { xs: "120px", md: "230px" },
-                objectFit: "cover",
-                borderRadius: "4px",
-                boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
-              }}
-            />
-          </Box>
-
+        <Stack spacing={0} sx={{ width: "100%" }}>
           {/* Horizontally scrolling content */}
           <Box
             sx={{
@@ -267,8 +265,9 @@ export const HowItWorks = () => {
               {/* Measuring Tape Image */}
               <Box
                 sx={{
-                  width: "100vh",
+                  width: "100%",
                   display: "flex",
+                  px: { xs: 2, md: 8 },
                 }}
               >
                 <Box
@@ -276,7 +275,7 @@ export const HowItWorks = () => {
                   src="../../img/measuringTape.png"
                   alt="Measuring tape"
                   sx={{
-                    width: "auto",
+                    width: "100%",
                     height: "auto",
                     objectFit: "contain",
                   }}
