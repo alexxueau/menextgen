@@ -56,6 +56,7 @@ export const WhyBecomeAVip = () => {
       <Box
         sx={{
           maxWidth: "1320px",
+          height: "100%",
           width: "100%",
           padding: "50px",
           backgroundColor: theme.palette.secondary.sand,
@@ -102,7 +103,7 @@ export const WhyBecomeAVip = () => {
               color: theme.palette.text.headerDark,
             }}
           >
-            Why become a meNexGen today?
+            Hello?
           </Typography>
 
           <Box
@@ -289,10 +290,10 @@ export const WhyBecomeAVip = () => {
           <Masonry
             columns={{ xs: 1, md: 2 }}
             spacing={1}
-            sx={{ width: "100%", alignItems: "flex-start" }}
+            sx={{ width: "100%", alignItems: "center" }}
           >
             {benefitCards.map((card, index) => (
-              <Grid item xs={12} sm={6} key={index}>
+              <Grid item xs={12} sm={6} md={6} lg={6} key={index}>
                 <BenefitCard
                   index={index}
                   title={card.title}

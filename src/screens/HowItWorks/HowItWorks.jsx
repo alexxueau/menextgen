@@ -267,7 +267,7 @@ export const HowItWorks = () => {
               {/* Measuring Tape Image */}
               <Box
                 sx={{
-                  width: "100%",
+                  width: "100vh",
                   display: "flex",
                 }}
               >
