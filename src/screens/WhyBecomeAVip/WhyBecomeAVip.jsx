@@ -258,17 +258,10 @@ export const WhyBecomeAVip = () => {
             }}
             onClick={() =>
               (window.location.href =
-                "https://share-ap1.hsforms.com/1r0Kng4rHRTGEx9jNO-3B4Qt3h2v")
+                "https://t3h2v.share-ap1.hsforms.com/2htv9LsPZQte0cCfvF_qw3A")
             }
           >
-            <Typography
-              sx={{
-                color: "#ffffff",
-                fontWeight: 700,
-              }}
-            >
-              Join Now
-            </Typography>
+            <Typography variant="body1">Join Now</Typography>
           </Button>
         </Stack>
 

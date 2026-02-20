@@ -1,5 +1,5 @@
-import { Box, Stack, Typography } from "@mui/material";
-import React from "react";
+import { Box, Button, Stack, Typography } from "@mui/material";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import theme from "../../op1000theme";
 
 export const WhatIsMeydIt = () => {
@@ -7,12 +7,12 @@ export const WhatIsMeydIt = () => {
     <Box
       sx={{
         width: "100%",
-        margin: "0 auto",
         bgcolor: "#f4efe5",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        height: "100vh",
+        minHeight: { xs: "auto", md: "100vh" },
+        py: { xs: 8, md: 0 },
       }}
     >
       <Box
@@ -20,58 +20,73 @@ export const WhatIsMeydIt = () => {
         sx={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
-          minHeight: "1024px",
+          width: "100%",
+          minHeight: { xs: "auto", md: "100vh" },
           px: { xs: 2, sm: 4, md: 8, lg: 12 },
-          paddingLeft: { xs: 2, sm: 4, md: 8, lg: 12 },
+          justifyContent: { xs: "center", md: "flex-start" },
         }}
       >
-        <Stack spacing={8} sx={{ maxWidth: "640px" }}>
-          <Typography variant="h2">What is MEYD.it?</Typography>
+        <Stack spacing={{ xs: 4, md: 8 }} sx={{ maxWidth: "640px" }}>
+          <Typography
+            variant="h2"
+            sx={{ textAlign: { xs: "center", md: "left" } }}
+          >
+            Bring your vision to life
+          </Typography>
 
-          <Stack spacing={8}>
-            <Typography
-              variant="h4"
-              sx={{
-                maxWidth: "526px",
-                color: "text.primary",
-                fontWeight: 600,
-                lineHeight: 1.3,
-              }}
-            >
-              MEYD.it is more than a platform.
-              <br />
-              It&apos;s a community that respects people &amp; the planet
-            </Typography>
+          <Typography
+            variant="h3"
+            sx={{
+              maxWidth: "526px",
+              color: "text.headerDark",
+              lineHeight: 1.3,
+              textAlign: { xs: "center", md: "left" },
+            }}
+          >
+            Collaborate with talented creatives who match your taste and vision.
+          </Typography>
 
-            <Typography
-              variant="body1"
-              sx={{
-                color: theme.palette.text.bodyDark,
-                fontWeight: 600,
-                lineHeight: 1.3,
-              }}
-            >
-              No middlemen. No fast fashion.
-              <br />
-              Just authentic connection, meaningful design, and fashion that
-              tells a story.
+          <Stack spacing={2}>
+            <Typography variant="h4">
+              Let's create something remarkable together
             </Typography>
+            <Stack direction="row" spacing={2} alignItems="flex-start">
+              <CheckCircleIcon sx={{ color: "primary.main", mt: 0.5 }} />
+              <Typography variant="body1">Share your budget</Typography>
+            </Stack>
+            <Stack direction="row" spacing={2} alignItems="flex-start">
+              <CheckCircleIcon sx={{ color: "primary.main", mt: 0.5 }} />
+              <Typography variant="body1">Upload your moodboard</Typography>
+            </Stack>
+            <Stack direction="row" spacing={2} alignItems="flex-start">
+              <CheckCircleIcon sx={{ color: "primary.main", mt: 0.5 }} />
+              <Typography variant="body1">Shape your style</Typography>
+            </Stack>
+          </Stack>
+          <Stack>
+            <Button
+              variant="contained"
+              sx={{
+                width: "100%",
+                height: "71px",
+                padding: "var(--global-tokens-light-spacing-3)",
+                borderRadius: "20px",
+                boxShadow: "0px 4px 20px rgba(255, 255, 255, 0.3)",
+                textTransform: "none",
+                "&:hover": {
+                  backgroundColor: "#7c3aed",
+                },
+              }}
+              onClick={() =>
+                (window.location.href =
+                  "https://t3h2v.share-ap1.hsforms.com/2htv9LsPZQte0cCfvF_qw3A")
+              }
+            >
+              <Typography variant="body1">Join Now</Typography>
+            </Button>
           </Stack>
         </Stack>
       </Box>
-      <Box
-        component="img"
-        alt="Frame"
-        src="/img/frame-1000001550.png"
-        sx={{
-          width: "650px",
-          height: "100vh",
-          pr: 7.5,
-          overflow: "hidden",
-          objectFit: "cover",
-        }}
-      />
     </Box>
   );
 };
