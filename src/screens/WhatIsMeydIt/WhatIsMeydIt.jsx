@@ -63,12 +63,18 @@ export const WhatIsMeydIt = () => {
               <Typography variant="body1">Shape your style</Typography>
             </Stack>
           </Stack>
-          <Stack>
+          <Stack alignItems="center">
             <Button
               variant="contained"
               sx={{
-                width: "100%",
-                height: "71px",
+                width: {
+                  xs: "50%",
+                  sm: "100%",
+                },
+                height: {
+                  xs: "50px",
+                  sm: "70px",
+                },
                 padding: "var(--global-tokens-light-spacing-3)",
                 borderRadius: "20px",
                 boxShadow: "0px 4px 20px rgba(255, 255, 255, 0.3)",

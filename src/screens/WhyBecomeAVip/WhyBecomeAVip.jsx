@@ -55,7 +55,7 @@ export const WhyBecomeAVip = () => {
     >
       <Box
         sx={{
-          maxWidth: "1320px",
+          maxWidth: "1440px",
           height: "100%",
           width: "100%",
           padding: "50px",
@@ -125,7 +125,7 @@ export const WhyBecomeAVip = () => {
                 position: "absolute",
                 left: 0,
                 top: "12px",
-                width: "50px",
+                width: { xs: "0", md: "50px" },
                 height: "1px",
               }}
             />
@@ -144,7 +144,7 @@ export const WhyBecomeAVip = () => {
                 position: "absolute",
                 right: 0,
                 top: "12px",
-                width: "50px",
+                width: { xs: "0", md: "50px" },
                 height: "1px",
               }}
             />
@@ -159,7 +159,8 @@ export const WhyBecomeAVip = () => {
               overflow: "hidden",
               boxShadow: "2px 2px 30px 1px rgba(0, 0, 0, 0.15)",
               backgroundImage: "url(/img/rectangle-10272.svg)",
-              backgroundSize: "100% 100%",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
               position: "relative",
               display: "flex",
               flexDirection: "column",
@@ -246,8 +247,12 @@ export const WhyBecomeAVip = () => {
           <Button
             variant="contained"
             sx={{
+              flexShrink: 0,
               width: { xs: "100%", sm: "450px" },
-              height: "71px",
+              height: {
+                xs: "50px",
+                sm: "70px",
+              },
               padding: "var(--global-tokens-light-spacing-3)",
               borderRadius: "20px",
               boxShadow: "0px 4px 20px rgba(255, 255, 255, 0.3)",

@@ -1,9 +1,6 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import React from "react";
 import theme from "../../op1000theme";
-
-// const navigationItems = ["ABOUT", "IMPACT", "EVENTS", "INSPO", "SERVICES"];
 
 export const Head = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -56,22 +53,36 @@ export const Head = () => {
           direction="row"
           justifyContent="space-between"
           alignItems="center"
-          sx={{ height: "103px", px: 4, py: 2 }}
+          sx={{
+            height: { xs: 72, sm: 100 },
+            px: { xs: 2, sm: 4 },
+            py: { xs: 1, sm: 2 },
+            gap: 2,
+            minWidth: 0,
+          }}
         >
           <Box
             component="img"
-            src="/img/logo.svg"
+            src="/img/logo.png"
             alt="Logo"
-            sx={{ height: "100%" }}
+            sx={{
+              height: { xs: 30, sm: 50 },
+              maxWidth: { xs: 200, sm: "none" }, // prevents logo from eating space
+              objectFit: "contain",
+              flexShrink: 1,
+            }}
           />
           <Button
             sx={{
-              px: 3,
-              py: 1,
+              flexShrink: 0,
+              px: { xs: 1.5, sm: 3 },
+              py: { xs: 0.75, sm: 1 },
+              minWidth: { xs: 96, sm: 120 },
               backgroundColor: theme.palette.primary[900],
               color: "#fff",
+              textTransform: "none",
               "&:hover": {
-                backgroundColor: "#7c3aed",
+                backgroundColor: theme.palette.primary[500],
               },
             }}
             onClick={() =>
@@ -79,7 +90,7 @@ export const Head = () => {
                 "https://t3h2v.share-ap1.hsforms.com/2htv9LsPZQte0cCfvF_qw3A")
             }
           >
-            Join Now
+            <Typography variant="body1">Join Now</Typography>
           </Button>
         </Stack>
       </Box>
@@ -90,12 +101,13 @@ export const Head = () => {
           zIndex: 5,
           width: "100%",
           maxWidth: "1440px",
-          height: "100%",
+          height: { xs: "calc(100vh - 100px)", sm: "100%" },
           margin: "0 auto",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           px: 7.5,
+          pt: { xs: "100px", sm: 0 },
         }}
       >
         <Stack spacing={5} alignItems="left">
