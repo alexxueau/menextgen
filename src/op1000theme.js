@@ -43,15 +43,16 @@ const theme = createTheme({
     },
     neutral: {
       white: "#FFFFFF",
-      100: "#EDEDED",
-      200: "#DADADA",
-      300: "#C8C8C8",
-      400: "#B6B6B6",
-      500: "#A4A4A4",
-      600: "#828083",
-      700: "#605E62",
-      800: "#2F2D31",
-      900: "#211E1E",
+      100: "#FFFFFF",
+      200: "#EDEDED",
+      300: "#DADADA",
+      400: "#C8C8C8",
+      500: "#B6B6B6",
+      600: "#A4A4A4",
+      700: "#828083",
+      800: "#605E62",
+      900: "#2F2D31",
+      1000: "#0A0A0A",
     },
     text: {
       bodyDark: "#625E5E",
@@ -79,8 +80,11 @@ const theme = createTheme({
       lineHeight: "auto",
       letterSpacing: "-5%",
       fontWeight: 400,
-      [breakpoints.down("sm")]: {
+      [breakpoints.down("md")]: {
         fontSize: "50px",
+      },
+      [breakpoints.down("sm")]: {
+        fontSize: "40px",
       },
     },
     h2: {
@@ -89,8 +93,11 @@ const theme = createTheme({
       lineHeight: "auto",
       letterSpacing: "-5%",
       fontWeight: 400,
-      [breakpoints.down("sm")]: {
+      [breakpoints.down("md")]: {
         fontSize: "40px",
+      },
+      [breakpoints.down("sm")]: {
+        fontSize: "36px",
       },
     },
     h3: {
@@ -119,7 +126,8 @@ const theme = createTheme({
       fontSize: "20px",
       lineHeight: "auto",
       letterSpacing: "0%",
-      fontWeight: 400,
+      fontWeight: 500,
+      color: "#DADADA",
       [breakpoints.down("sm")]: {
         fontSize: "18px",
       },

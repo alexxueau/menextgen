@@ -80,7 +80,7 @@ export const WhatIsMeydIt = () => {
                 boxShadow: "0px 4px 20px rgba(255, 255, 255, 0.3)",
                 textTransform: "none",
                 "&:hover": {
-                  backgroundColor: "#7c3aed",
+                  backgroundColor: theme.palette.primary[700],
                 },
               }}
               onClick={() =>
