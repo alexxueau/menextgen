@@ -179,6 +179,17 @@ const theme = createTheme({
       fontWeight: 100,
       color: "#605E62",
     },
+    button: {
+      fontFamily: fonts.body,
+      fontSize: "18px",
+      lineHeight: "140%",
+      letterSpacing: "0",
+      fontWeight: 600,
+      textTransform: "none",
+      [breakpoints.down("md")]: {
+        fontSize: "12px",
+      },
+    },
   },
   shape: {
     borderRadius: 8,

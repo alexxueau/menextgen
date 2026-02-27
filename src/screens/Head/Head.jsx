@@ -78,11 +78,12 @@ export const Head = () => {
               px: { xs: 1.5, sm: 3 },
               py: { xs: 0.75, sm: 1 },
               minWidth: { xs: 96, sm: 120 },
-              backgroundColor: theme.palette.primary[900],
-              color: "#fff",
-              textTransform: "none",
+              backgroundColor: "#fff",
+              color: theme.palette.primary[900],
+              borderRadius: 999,
               "&:hover": {
-                backgroundColor: theme.palette.primary[500],
+                color: "#fff",
+                backgroundColor: theme.palette.primary[900],
               },
             }}
             onClick={() =>
@@ -90,7 +91,7 @@ export const Head = () => {
                 "https://t3h2v.share-ap1.hsforms.com/2htv9LsPZQte0cCfvF_qw3A")
             }
           >
-            <Typography variant="body1">Join Now</Typography>
+            <Typography variant="button">Join Now</Typography>
           </Button>
         </Stack>
       </Box>

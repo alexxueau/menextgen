@@ -92,7 +92,7 @@ export const WhatIsMeydIt = () => {
                   "https://t3h2v.share-ap1.hsforms.com/2htv9LsPZQte0cCfvF_qw3A")
               }
             >
-              <Typography variant="body1">Join Now</Typography>
+              <Typography variant="button">Join Now</Typography>
             </Button>
           </Stack>
         </Stack>
