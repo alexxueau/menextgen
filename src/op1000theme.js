@@ -153,6 +153,32 @@ const theme = createTheme({
         fontSize: "12px",
       },
     },
+    body2: {
+      fontFamily: fonts.body,
+      fontSize: "14px",
+      lineHeight: "140%",
+      letterSpacing: "0",
+      fontWeight: 100,
+      color: "#605E62",
+      [breakpoints.down("md")]: {
+        fontSize: "10px",
+      },
+    },
+    body3: {
+      fontFamily: fonts.body,
+      fontSize: "18px",
+      lineHeight: "140%",
+      letterSpacing: "0",
+      fontWeight: 100,
+    },
+    body4: {
+      fontFamily: fonts.body,
+      fontSize: "14px",
+      lineHeight: "140%",
+      letterSpacing: "0",
+      fontWeight: 100,
+      color: "#605E62",
+    },
   },
   shape: {
     borderRadius: 8,

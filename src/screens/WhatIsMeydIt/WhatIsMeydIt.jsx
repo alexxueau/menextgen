@@ -1,6 +1,7 @@
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import theme from "../../op1000theme";
+import tailorImage from "/img/tailor.jpg";
 
 export const WhatIsMeydIt = () => {
   return (
@@ -19,14 +20,17 @@ export const WhatIsMeydIt = () => {
         data-model-id="1:495"
         sx={{
           display: "flex",
+          flexDirection: { xs: "column", sm: "column", md: "row", lg: "row" },
           alignItems: "center",
+          maxWidth: "1600px",
           width: "100%",
           minHeight: { xs: "auto", md: "100vh" },
-          px: { xs: 2, sm: 4, md: 8, lg: 12 },
-          justifyContent: { xs: "center", md: "flex-start" },
+          px: { xs: 2, sm: 4, md: 6, lg: 8 },
+          justifyContent: { xs: "center", md: "center" },
+          gap: { xs: 4, md: 10 },
         }}
       >
-        <Stack spacing={{ xs: 4, md: 8 }} sx={{ maxWidth: "640px" }}>
+        <Stack spacing={{ xs: 2, md: 4 }} sx={{ maxWidth: "540px" }}>
           <Typography
             variant="h2"
             sx={{ textAlign: { xs: "center", md: "left" } }}
@@ -69,11 +73,11 @@ export const WhatIsMeydIt = () => {
               sx={{
                 width: {
                   xs: "50%",
-                  sm: "100%",
+                  md: "100%",
                 },
                 height: {
                   xs: "50px",
-                  sm: "70px",
+                  md: "70px",
                 },
                 padding: "var(--global-tokens-light-spacing-3)",
                 borderRadius: "20px",
@@ -92,6 +96,75 @@ export const WhatIsMeydIt = () => {
             </Button>
           </Stack>
         </Stack>
+        <Box
+          sx={{
+            maxWidth: "698px",
+            minWidth: { lg: "600px", md: "600px", sm: "500px" },
+            width: "100%",
+            height: "720px",
+            borderRadius: "40px",
+            bgcolor: theme.palette.primary[200],
+            padding: "30px",
+            alignItems: "center",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <Grid
+            container
+            columns={2}
+            rows={5}
+            columnSpacing={"50px"}
+            rowSpacing={"20px"}
+          >
+            {[...Array(10)].map((_, index) => (
+              <Grid item xs={1} key={index}>
+                <Box
+                  flexDirection="row"
+                  sx={{
+                    display: "flex",
+                    width: "100%",
+                    height: "115px",
+                    bgcolor: "white",
+                    borderRadius: "10px",
+                    padding: "10px",
+                    gap: "16px",
+                    border: `3px solid ${theme.palette.primary.main}`,
+                  }}
+                >
+                  <Box
+                    component="img"
+                    src={tailorImage}
+                    sx={{
+                      maxWidth: "90px",
+                      maxHeight: "90px",
+                      width: "100%",
+                      height: "100%",
+                      borderRadius: "12px",
+                      flexShrink: 0,
+                      objectFit: "cover",
+                    }}
+                  ></Box>
+                  <Box
+                    flexDirection="column"
+                    sx={{
+                      display: "flex",
+                      width: "100%",
+                      height: "90px",
+                      borderRadius: "12px",
+                      overflow: "hidden",
+                      overflowWrap: "break-word",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Typography variant="body3">Name</Typography>
+                    <Typography variant="body4">Description</Typography>
+                  </Box>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
       </Box>
     </Box>
   );
