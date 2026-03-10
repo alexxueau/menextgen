@@ -1,4 +1,3 @@
-
 import { Box, Button, Paper, Stack, Typography } from "@mui/material";
 import React, { useState } from "react";
 import theme from "../../op1000theme";
@@ -25,16 +24,32 @@ export const SpreadTheWord = () => {
   const [activeButton, setActiveButton] = useState("download");
 
   const buttons = [
-    { id: "download", left: "0px", img: "/img/DownloadP.svg", url: "/img/StoryPic.png", onClick: () => {
-      const link = document.createElement('a');
-      link.href = "/img/StoryPic.png";
-      link.download = "meyd-it-story.png";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }},    
-    { id: "instagram", left: "90px", img: "/img/InsP.svg", url:"https://www.instagram.com/meyd_it" },
-    { id: "tiktok", left: "180px", img: "/img/TTP.svg", url:"https://www.tiktok.com/@meyd.it" },
+    {
+      id: "download",
+      left: "0px",
+      img: "/img/DownloadP.svg",
+      url: "/img/StoryPic.png",
+      onClick: () => {
+        const link = document.createElement("a");
+        link.href = "/img/StoryPic.png";
+        link.download = "meyd-it-story.png";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      },
+    },
+    {
+      id: "instagram",
+      left: "90px",
+      img: "/img/InsP.svg",
+      url: "https://www.instagram.com/meyd_it",
+    },
+    {
+      id: "tiktok",
+      left: "180px",
+      img: "/img/TTP.svg",
+      url: "https://www.tiktok.com/@meyd.it",
+    },
   ];
 
   const images = [
@@ -49,7 +64,7 @@ export const SpreadTheWord = () => {
     return {
       position: "absolute",
       left: buttons.find((b) => b.id === id).left,
-      height: "71px", 
+      height: "71px",
       backgroundColor: isActive ? "#7C58BC" : "transparent",
       borderRadius: "20px",
       boxShadow: "0px 2px 4px rgba(255, 255, 255, 0.3)",
@@ -57,61 +72,60 @@ export const SpreadTheWord = () => {
       padding: "12px",
       transition: "background-color 0.3s ease",
       "& img": {
-        filter: isActive ? "brightness(0) invert(1)" : "none"
+        filter: isActive ? "brightness(0) invert(1)" : "none",
       },
-      "&:hover": { 
+      "&:hover": {
         backgroundColor: "#6A4AA8",
         "& img": {
-          filter: "brightness(0) invert(1)" 
-        }
+          filter: "brightness(0) invert(1)",
+        },
       },
     };
   };
-  
+
   const getImageStyles = (id) => {
-  let rotation = 0;
-  let zIndex = 1;
+    let rotation = 0;
+    let zIndex = 1;
 
-  // Rotation map depending on active button
-  switch (activeButton) {
-    case "download":
-      if (id === "download") rotation = 0;
-      if (id === "instagram") rotation = -10;
-      if (id === "tiktok") rotation = 10;
-      break;
+    // Rotation map depending on active button
+    switch (activeButton) {
+      case "download":
+        if (id === "download") rotation = 0;
+        if (id === "instagram") rotation = -10;
+        if (id === "tiktok") rotation = 10;
+        break;
 
-    case "instagram":
-      if (id === "instagram") rotation = 0;
-      if (id === "download") rotation = -10;
-      if (id === "tiktok") rotation = 10;
-      break;
+      case "instagram":
+        if (id === "instagram") rotation = 0;
+        if (id === "download") rotation = -10;
+        if (id === "tiktok") rotation = 10;
+        break;
 
-    case "tiktok":
-      if (id === "tiktok") rotation = 0;
-      if (id === "download") rotation = -10;
-      if (id === "instagram") rotation = 10;
-      break;
+      case "tiktok":
+        if (id === "tiktok") rotation = 0;
+        if (id === "download") rotation = -10;
+        if (id === "instagram") rotation = 10;
+        break;
 
-    default:
-      rotation = 0;
-  }
+      default:
+        rotation = 0;
+    }
 
-  // Active one is always on top
-  zIndex = activeButton === id ? 3 : 2;
+    // Active one is always on top
+    zIndex = activeButton === id ? 3 : 2;
 
-  return {
-    position: "absolute",
-    bottom: 60,
-    left: "50%",
-    transform: `translateX(-50%) rotate(${rotation}deg)`,
-    transformOrigin: "center bottom",
-    transition: "transform 0.6s ease, z-index 0.3s ease",
-    width: "290px",
-    height: "500px",
-    zIndex,
+    return {
+      position: "absolute",
+      bottom: 60,
+      left: "50%",
+      transform: `translateX(-50%) rotate(${rotation}deg)`,
+      transformOrigin: "center bottom",
+      transition: "transform 0.6s ease, z-index 0.3s ease",
+      width: "290px",
+      height: "500px",
+      zIndex,
+    };
   };
-};
-  
 
   const getLabel = () => {
     switch (activeButton) {
@@ -214,12 +228,12 @@ export const SpreadTheWord = () => {
         alt="Instagram icon"
         sx={{
           position: "absolute",
-          top: "206px", 
+          top: "206px",
           left: "264px",
           width: "88px",
           height: "88px",
           transform: "rotate(-15deg)",
-          cursor: "pointer"
+          cursor: "pointer",
         }}
       />
 
@@ -310,7 +324,7 @@ export const SpreadTheWord = () => {
         </Paper>
 
         {/* Center Interactive Section */}
-        <Box sx={{ width: "365px", height: "619px", position: "relative" }}>
+        <Box sx={{ width: "400px", height: "619px", position: "relative" }}>
           {/* Images */}
           <Box sx={{ position: "relative", width: "400px", height: "550px" }}>
             {images.map((img, index) => (
@@ -372,8 +386,8 @@ export const SpreadTheWord = () => {
                 <Button
                   key={btn.id}
                   onClick={() => {
-                    setActiveButton(btn.id)
-                    window.open(btn.url, '_blank');
+                    setActiveButton(btn.id);
+                    window.open(btn.url, "_blank");
                   }}
                   onMouseEnter={() => setActiveButton(btn.id)}
                   sx={getButtonStyles(btn.id)}
@@ -386,10 +400,7 @@ export const SpreadTheWord = () => {
                       width: "36px",
                       height: "36px",
                       position: "absolute",
-                      filter:
-                        activeButton === btn.id
-                          ? "#FFFFFF"
-                          : "#7C58BC",
+                      filter: activeButton === btn.id ? "#FFFFFF" : "#7C58BC",
                       transition: "filter 0.3s ease",
                     }}
                   />
