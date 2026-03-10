@@ -101,7 +101,7 @@ export const WhatIsMeydIt = () => {
             maxWidth: "698px",
             minWidth: { lg: "600px", md: "600px", sm: "500px" },
             width: "100%",
-            height: "720px",
+            height: "auto",
             borderRadius: "40px",
             bgcolor: theme.palette.primary[200],
             padding: "30px",
@@ -112,57 +112,65 @@ export const WhatIsMeydIt = () => {
         >
           <Grid
             container
-            columns={2}
-            rows={5}
+            columns={{ xs: 1, sm: 1, md: 2 }}
             columnSpacing={"50px"}
             rowSpacing={"20px"}
           >
-            {[...Array(10)].map((_, index) => (
-              <Grid item xs={1} key={index}>
-                <Box
-                  flexDirection="row"
-                  sx={{
-                    display: "flex",
-                    width: "100%",
-                    height: "115px",
-                    bgcolor: "white",
-                    borderRadius: "10px",
-                    padding: "10px",
-                    gap: "16px",
-                    border: `3px solid ${theme.palette.primary.main}`,
-                  }}
-                >
+            {[...Array(10)].map((_, index) => {
+              const colors = [
+                theme.palette.primary.main,
+                "#F99BAB",
+                "#00C0E8",
+                "#FFCC00",
+              ];
+              const borderColor = colors[index % 4];
+              return (
+                <Grid item xs={1} key={index}>
                   <Box
-                    component="img"
-                    src={tailorImage}
-                    sx={{
-                      maxWidth: "90px",
-                      maxHeight: "90px",
-                      width: "100%",
-                      height: "100%",
-                      borderRadius: "12px",
-                      flexShrink: 0,
-                      objectFit: "cover",
-                    }}
-                  ></Box>
-                  <Box
-                    flexDirection="column"
+                    flexDirection="row"
                     sx={{
                       display: "flex",
                       width: "100%",
-                      height: "90px",
-                      borderRadius: "12px",
-                      overflow: "hidden",
-                      overflowWrap: "break-word",
-                      justifyContent: "center",
+                      height: "115px",
+                      bgcolor: "white",
+                      borderRadius: "10px",
+                      padding: "10px",
+                      gap: "16px",
+                      border: `3px solid ${borderColor}`,
                     }}
                   >
-                    <Typography variant="body3">Name</Typography>
-                    <Typography variant="body4">Description</Typography>
+                    <Box
+                      component="img"
+                      src={tailorImage}
+                      sx={{
+                        maxWidth: "90px",
+                        maxHeight: "90px",
+                        width: "100%",
+                        height: "100%",
+                        borderRadius: "12px",
+                        flexShrink: 0,
+                        objectFit: "cover",
+                      }}
+                    ></Box>
+                    <Box
+                      flexDirection="column"
+                      sx={{
+                        display: "flex",
+                        width: "100%",
+                        height: "90px",
+                        borderRadius: "12px",
+                        overflow: "hidden",
+                        overflowWrap: "break-word",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Typography variant="body3">Name</Typography>
+                      <Typography variant="body4">Description</Typography>
+                    </Box>
                   </Box>
-                </Box>
-              </Grid>
-            ))}
+                </Grid>
+              );
+            })}
           </Grid>
         </Box>
       </Box>
