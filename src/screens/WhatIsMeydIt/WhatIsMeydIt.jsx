@@ -1,7 +1,70 @@
 import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import theme from "../../op1000theme";
-import tailorImage from "/img/tailor.jpg";
+
+const cardData = [
+  {
+    name: "Kofi Mensah",
+    description: "Bespoke Gold Button Blazer",
+    imageSrc: "/img/MEYDITKofiMensahDescriptionBespokeGoldButtonBlazer.jpeg",
+    borderColor: "#FFCC00",
+  },
+  {
+    name: "Mateo Silva",
+    description: "Psychedelic Patterned Top",
+    imageSrc: "/img/MEYDITMateoSilvaDescriptionPsychedelicPatternedTop.jpeg",
+    borderColor: theme.palette.primary.main,
+  },
+  {
+    name: "Zara Rashid",
+    description: "Sculptural Peplum Top",
+    imageSrc: "/img/MEYDITZaraRashidDescriptionSculpturalPeplumTop.jpeg",
+    borderColor: "#F99BAB",
+  },
+  {
+    name: "Isabella Garcia",
+    description: "Vintage Leather Mini Dress Refit",
+    imageSrc:
+      "/img/MEYDITIsabellaGarciaDescriptionVintageLeatherMiniDressRefit.jpeg",
+    borderColor: "#00C0E8",
+  },
+  {
+    name: "Amara Osei",
+    description: "Delicate Lace Midi Skirt",
+    imageSrc: "/img/MEYDITAmaraOseiDescriptionDelicateLaceMidiSkirt.jpeg",
+    borderColor: theme.palette.primary.main,
+  },
+  {
+    name: "Anjali Singh",
+    description: "Micro-Dot Silk Blouse",
+    imageSrc: "/img/MEYDITAnjaliSinghDescriptionMicroDotSilkBlouse.png",
+    borderColor: "#F99BAB",
+  },
+  {
+    name: "Nala Zaki",
+    description: "Dramatic Fringed Scarf",
+    imageSrc: "/img/MEYDITNalaZakiDescriptionDramaticFringedScarf.jpeg",
+    borderColor: "#00C0E8",
+  },
+  {
+    name: "Ethan Jones",
+    description: "Cobalt Monochrome Suit",
+    imageSrc: "/img/MEYDITEthanJonesDescriptionCobaltMonochromeSuit.jpeg",
+    borderColor: "#FFCC00",
+  },
+  {
+    name: "Liam O’Connell",
+    description: "Cloud Light' Shoulder Blazer",
+    imageSrc: "/img/MEYDITLiamOConnellDescriptionCloudLightShoulderBlazer.jpeg",
+    borderColor: theme.palette.primary.main,
+  },
+  {
+    name: "Sophia Lee",
+    description: "Forest Green Gold Dress",
+    imageSrc: "/img/MEYDITSophiaLeeDescriptionForestGreenGoldDress.png",
+    borderColor: "#F99BAB",
+  },
+];
 
 export const WhatIsMeydIt = () => {
   return (
@@ -12,8 +75,8 @@ export const WhatIsMeydIt = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        minHeight: { xs: "auto", md: "100vh" },
-        py: { xs: 8, md: 0 },
+        minHeight: "auto",
+        py: 8,
       }}
     >
       <Box
@@ -105,7 +168,7 @@ export const WhatIsMeydIt = () => {
             borderRadius: "40px",
             bgcolor: theme.palette.primary[200],
             padding: "30px",
-            alignItems: "center",
+            // alignItems: "center",
             display: "flex",
             justifyContent: "center",
           }}
@@ -116,61 +179,52 @@ export const WhatIsMeydIt = () => {
             columnSpacing={"50px"}
             rowSpacing={"20px"}
           >
-            {[...Array(10)].map((_, index) => {
-              const colors = [
-                theme.palette.primary.main,
-                "#F99BAB",
-                "#00C0E8",
-                "#FFCC00",
-              ];
-              const borderColor = colors[index % 4];
-              return (
-                <Grid item xs={1} key={index}>
+            {cardData.map((card, index) => (
+              <Grid item xs={1} key={index}>
+                <Box
+                  flexDirection="row"
+                  sx={{
+                    display: "flex",
+                    width: "100%",
+                    height: "115px",
+                    bgcolor: "white",
+                    borderRadius: "10px",
+                    padding: "10px",
+                    gap: "16px",
+                    border: `3px solid ${card.borderColor}`,
+                  }}
+                >
                   <Box
-                    flexDirection="row"
+                    component="img"
+                    src={card.imageSrc}
+                    sx={{
+                      maxWidth: "90px",
+                      maxHeight: "90px",
+                      width: "100%",
+                      height: "100%",
+                      borderRadius: "12px",
+                      flexShrink: 0,
+                      objectFit: "cover",
+                    }}
+                  ></Box>
+                  <Box
+                    flexDirection="column"
                     sx={{
                       display: "flex",
                       width: "100%",
-                      height: "115px",
-                      bgcolor: "white",
-                      borderRadius: "10px",
-                      padding: "10px",
-                      gap: "16px",
-                      border: `3px solid ${borderColor}`,
+                      height: "90px",
+                      borderRadius: "12px",
+                      overflow: "hidden",
+                      overflowWrap: "break-word",
+                      justifyContent: "center",
                     }}
                   >
-                    <Box
-                      component="img"
-                      src={tailorImage}
-                      sx={{
-                        maxWidth: "90px",
-                        maxHeight: "90px",
-                        width: "100%",
-                        height: "100%",
-                        borderRadius: "12px",
-                        flexShrink: 0,
-                        objectFit: "cover",
-                      }}
-                    ></Box>
-                    <Box
-                      flexDirection="column"
-                      sx={{
-                        display: "flex",
-                        width: "100%",
-                        height: "90px",
-                        borderRadius: "12px",
-                        overflow: "hidden",
-                        overflowWrap: "break-word",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <Typography variant="body3">Name</Typography>
-                      <Typography variant="body4">Description</Typography>
-                    </Box>
+                    <Typography variant="body3">{card.name}</Typography>
+                    <Typography variant="body4">{card.description}</Typography>
                   </Box>
-                </Grid>
-              );
-            })}
+                </Box>
+              </Grid>
+            ))}
           </Grid>
         </Box>
       </Box>
